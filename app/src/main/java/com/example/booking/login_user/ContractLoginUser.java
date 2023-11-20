@@ -1,6 +1,6 @@
 package com.example.booking.login_user;
 
-import com.example.loginandroid_29_09_2023.beans.User;
+import com.example.booking.beans.User;
 
 public interface ContractLoginUser {
     public interface View{

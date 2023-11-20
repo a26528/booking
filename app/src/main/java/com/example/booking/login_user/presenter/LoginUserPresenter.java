@@ -9,18 +9,21 @@ public class LoginUserPresenter implements ContractLoginUser.Presenter, Contract
     private ContractLoginUser.View view;
     private ContractLoginUser.Model model;
 
-    public LoginUserPresenter(ContractLoginUser.View view){
+    public LoginUserPresenter(ContractLoginUser.View view) {
         this.view = view;
         model = new LoginUserModel(this);
     }
-    @Override
+
     public void login(User user) {
         model.loginAPI(user, this);
     }
 
     @Override
     public void onFinished(User user) {
-        view.successLogin(user);
+
+            view.successLogin(user);
+
+
     }
 
     @Override
@@ -28,3 +31,5 @@ public class LoginUserPresenter implements ContractLoginUser.Presenter, Contract
 
     }
 }
+
+
