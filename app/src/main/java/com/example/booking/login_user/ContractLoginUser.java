@@ -11,10 +11,7 @@ public interface ContractLoginUser {
     public interface Presenter{
         // void login(String email, String pass);
         void login(User user);
-        // void login(ViewUser viewUser);
-        // VIEW-ORM
-        // BEANS-ENTITIES
-        // MVP - MVVM
+
     }
     public interface Model{
         interface OnLoginUserListener{

@@ -34,4 +34,8 @@ public class User {
         this.pass = pass;
         this.email = email;
     }
+
+    public void setToken(String s) {
+    }
+    public  User(){}
 }

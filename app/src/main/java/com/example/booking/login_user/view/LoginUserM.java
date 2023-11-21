@@ -15,8 +15,8 @@ import com.example.booking.login_user.presenter.LoginUserPresenter;
 
 public class LoginUserM extends AppCompatActivity implements ContractLoginUser.View{
 
-    private EditText edtEmail;
-    private EditText edtPassword;
+    private EditText edtUser;
+    private EditText  edtPassword;
     private Button btnLogin;
 
     private LoginUserPresenter presenter =
@@ -31,13 +31,13 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_user_m);
+        setContentView(R.layout.activity_login_user);
         mainActivity = this;
         initComponents();
 
     }
     private void initComponents(){
-        edtEmail = findViewById(R.id.edtEmail);
+        edtUser = findViewById(R.id.edtUser);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
