@@ -22,12 +22,12 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     private LoginUserPresenter presenter =
             new LoginUserPresenter(this);
 
-    /* PATRÓN SINGLETON*/
+
     private static LoginUserM mainActivity = null;
     public static LoginUserM getInstance(){
         return mainActivity; //0x457845AF
     }
-    /* FIN PATRÓN SINGLETON*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

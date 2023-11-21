@@ -1,7 +1,7 @@
 package com.example.booking.utils;
 
 import com.example.booking.login_user.model.data.MyData;
-import com.example.booking.lst_movies_2.DataMovies;
+
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -21,11 +21,11 @@ public interface ApiService {
                                  @Query("EMAIL") String email,
                                  @Query("PASSWORD") String pass);
 */
-        @GET("MyServlet")
+       /* @GET("MyServlet")
         Call<DataMovies> getDataMovies(@Query("ACTION") String action);
 
         @GET("MyServlet")
-        Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
+        Call<DataMovies> getDataMovies2(@Query("ACTION") String action);*/
 
         /*
         @GET("MyServlet")
