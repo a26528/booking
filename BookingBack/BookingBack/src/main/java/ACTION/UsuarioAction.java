@@ -16,10 +16,8 @@ public class UsuarioAction {
         String[] arrayAction = action.split("\\.");
         switch (arrayAction[1]) {
             case "LOGIN":
-
                 System.out.println("He entrado en login");
-                cadDestino = login(request, response);
-                break;
+                cadDestino = login(request, response, request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
             case "REGISTER":
                 cadDestino = register(request, response, request.getParameter("NOMBRE_USUARIO"), request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
                 break;
@@ -27,10 +25,21 @@ public class UsuarioAction {
         return cadDestino;
     }
 
-    private String login(HttpServletRequest request, HttpServletResponse response) {
+    private String login(HttpServletRequest request, HttpServletResponse response,String username, String pass) {
+
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        String usuario = usuarioDAO.login(request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
+        String usuario = usuarioDAO.login(username, pass);
+        String res = "{";
+        res += "\"message\":";
+        res += "\"Todo Bien\",";
+        res += "\"lstUsers\":";
+        res += "[";
+        res += usuario;
+        res += "]";
+        res += "}";
+        return res;
         return usuario;
+
     }
 
     private String register(HttpServletRequest request, HttpServletResponse response, String nombre, String username, String pass) {
