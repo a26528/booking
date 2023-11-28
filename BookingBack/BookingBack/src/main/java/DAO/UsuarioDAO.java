@@ -58,7 +58,7 @@ public class UsuarioDAO {
         motorSQL.disconnect();
         return Usuario.objecttoJson(usuario);
     }
-
+/*
     public int register(String nombre ,String username, String pass) {
         int i = 0;
         String sql = "INSERT INTO USUARIO (NOMBRE_USUARIO, USERNAME_USUARIO, PASS_USUARIO) VALUES ('" + nombre + "', '" + username + "', '" + pass + "')";

@@ -20,7 +20,7 @@ import com.example.booking.utils.RetrofitCliente;
 import com.google.gson.Gson;
 
 public class LoginUserModel implements ContractLoginUser.Model {
-    private static final String IP_BASE = "192.168.104.71:8080";
+    private static final String IP_BASE = "192.168.104.56:8080";
     private LoginUserPresenter presenter;
     private Context context;
 

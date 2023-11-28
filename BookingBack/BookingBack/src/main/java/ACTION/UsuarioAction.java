@@ -19,7 +19,7 @@ public class UsuarioAction {
                 System.out.println("He entrado en login");
                 cadDestino = login(request, response, request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
             case "REGISTER":
-                cadDestino = register(request, response, request.getParameter("NOMBRE_USUARIO"), request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
+             //   cadDestino = register(request, response, request.getParameter("NOMBRE_USUARIO"), request.getParameter("USERNAME_USUARIO"), request.getParameter("PASS_USUARIO"));
                 break;
         }
         return cadDestino;
@@ -38,10 +38,10 @@ public class UsuarioAction {
         res += "]";
         res += "}";
         return res;
-        return usuario;
 
-    }
 
+    }}
+/*
     private String register(HttpServletRequest request, HttpServletResponse response, String nombre, String username, String pass) {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         int i = usuarioDAO.register(nombre, username, pass);
@@ -53,4 +53,4 @@ public class UsuarioAction {
         String usuario = usuarioDAO.login("Pablo", "Pablo1234");
         System.out.println(usuario);
     }
-}
+}*/
