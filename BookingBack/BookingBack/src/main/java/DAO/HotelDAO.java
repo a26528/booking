@@ -30,6 +30,11 @@ public class HotelDAO {
             }
             if (bean.getReservas_Hotel() != 0) {
                 sql_filtro += " AND RESERVAS_HOTEL = " + bean.getReservas_Hotel();
+            }if (bean.getImagen_Hotel() != null) {
+                sql_filtro += " AND IMAGEN_HOTEL = " + bean.getImagen_Hotel();
+            }
+            if (bean.getLocalizacion_Hotel() != null) {
+                sql_filtro += " AND LOCALIZACION_HOTEL = " + bean.getLocalizacion_Hotel();
             }
             sql_final = SQL_FINDALL + sql_filtro;
             ResultSet resultset = this.motorSQL.executeQuery(sql_final);
@@ -40,6 +45,8 @@ public class HotelDAO {
                     entidad.setId_Hotel(resultset.getInt(1));
                     entidad.setNombre_Hotel(resultset.getString(2));
                     entidad.setReservas_Hotel(resultset.getInt(3));
+                    entidad.setImagen_Hotel(resultset.getString(4));
+                    entidad.setLocalizacion_Hotel(resultset.getString(5));
                     lstHoteles.add(entidad);
                 }
             }
@@ -108,6 +115,36 @@ public class HotelDAO {
         try{
             this.motorSQL.connect();
             String sql = "SELECT id_hotel, nombre_hotel, reservas_hotel FROM public.hotel ORDER BY reservas_hotel DESC LIMIT 10";
+            ResultSet resultset = this.motorSQL.executeQuery(sql);
+
+            while (resultset.next()) { // Mueve el cursor al primer registro y sigue avanzando
+                Hotel hotel = new Hotel();
+                hotel.setId_Hotel(resultset.getInt(1));
+                hotel.setNombre_Hotel(resultset.getString(2));
+                hotel.setReservas_Hotel(resultset.getInt(3));
+                lstHoteles.add(hotel); // Agrega cada hotel a la lista
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            this.motorSQL.disconnect();
+        }
+
+        MyDataVH10 data = new MyDataVH10();
+        data.setLstHotel(lstHoteles);
+        resultado = Hotel.toJsonData(data); // Convierte la lista de hoteles a formato JSON
+
+        return resultado;
+    }
+
+
+    public String findplaya(){
+        String resultado = null;
+        ArrayList<Hotel> lstHoteles = new ArrayList<>(); // Inicializa la lista
+
+        try{
+            this.motorSQL.connect();
+            String sql = "SELECT id_hotel, nombre_hotel, reservas_hotel FROM public.hotel WHERE localizacion_hotel= 'playa'";
             ResultSet resultset = this.motorSQL.executeQuery(sql);
 
             while (resultset.next()) { // Mueve el cursor al primer registro y sigue avanzando
