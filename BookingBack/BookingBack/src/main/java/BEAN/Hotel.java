@@ -9,7 +9,7 @@ public class Hotel {
     private int id_Hotel, reservas_Hotel;
 
     private String nombre_Hotel,imagen_Hotel,localizacion_Hotel;
-
+    private double puntuacion_Hotel;
     public Hotel() {
     }
     public Hotel (int id_Hotel, String nombre_Hotel, int reservas_Hotel,String imagen_Hotel, String localizacion_Hotel){
@@ -73,5 +73,13 @@ public class Hotel {
 
         Gson gson = builder.create();
         return gson.toJson(hoteles);
+    }
+
+    public void setPuntuacion_Hotel(double puntuacionHotel) {
+        this.puntuacion_Hotel = puntuacionHotel;
+    }
+
+    public double getPuntuacion_Hotel() {
+        return puntuacion_Hotel;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.booking.utils;
 
 import com.example.booking.create_habitacion.data.MyDataHC;
+import com.example.booking.filtrar_hotel.data.MyDataFH;
 import com.example.booking.login_user.data.MyDataLU;
 import com.example.booking.ver_hotel10.data.MyDataVH10;
 
@@ -42,5 +43,13 @@ public interface ApiService {
     Call<MyDataVH10> ver10hoteles(
             @Query("ACTION") String action
     );
-
+    @GET("Controller")
+    Call<MyDataFH> filtrarHotel(
+            @Query("ACTION") String action,
+            @Query("NOMBRE_HOTEL") String nombre,
+            @Query("ORDEN") int orden,
+            @Query("PUNTUACION") int puntuacion
+    );
 }
+
+

@@ -1,12 +1,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Contenedor del CardView (puede ser un RecyclerView) -->
+    <!-- Campo de búsqueda por nombre -->
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buscar por nombre"
+        android:inputType="text" />
+
+    <!-- Spinner para el orden -->
+    <Spinner
+        android:id="@+id/spinnerOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/order_options" />
+
+    <!-- Controles deslizantes para puntuación -->
+    <TextView
+        android:id="@+id/textViewRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntuación (1-5): 0" />
+    <SeekBar
+        android:id="@+id/seekBarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:thumbTint="@color/booking_blue" />
+
+    <!-- Contenedor del RecyclerView para mostrar hoteles -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

@@ -4,17 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,33 +12,49 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textViewNombreHotel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hola"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" /> <!-- Cambia el color del texto -->
+        <!-- Botón -->
 
-        <TextView
-            android:id="@+id/textViewIdHotel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hola"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="italic" /> <!-- Cambia el color del texto -->
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
 
-        <TextView
-            android:id="@+id/textViewReservasHotel"
-            android:layout_width="wrap_content"
+        <!-- LinearLayout con los TextView -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hola"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <!-- Cambia el color del texto -->
+            <TextView
+                android:id="@+id/textViewNombreHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewIdHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textViewReservasHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
+
+
+
 
 </androidx.cardview.widget.CardView>

@@ -42,6 +42,12 @@ public class HotelAction {
         ArrayList<Hotel> listHoteles = hotelDAO.findAll(null);
         return Hotel.toJson(listHoteles);
     }
+    //FILTRITO
+    private String filtrar(HttpServletRequest request, HttpServletResponse response, String nombre, int orden) {
+        HotelDAO hotelDAO = new HotelDAO();
+        String resultado = hotelDAO.filtrar(nombre, orden);
+        return resultado;
+    }
     //HABITACION.INSERT
     private int insert(HttpServletRequest request, HttpServletResponse response, String nombre, int reservas) {
         HotelDAO hotelDAO = new HotelDAO();

@@ -2,7 +2,6 @@ package DAO;
 
 import BEAN.Hotel;
 import BEAN.MyDataVH10;
-import BEAN.Usuario;
 import motorSQL.MotorSQL;
 
 import java.sql.ResultSet;
@@ -178,6 +177,61 @@ public class HotelDAO {
         }
         return i;
     }
+    public String filtrar(String nombre, int orden) {
+        String resultado = null;
+        ArrayList<Hotel> lstHoteles = new ArrayList<>();
+
+        try {
+            this.motorSQL.connect();
+            String sql = "SELECT hotel.id_hotel, hotel.nombre_hotel, hotel.reservas_hotel FROM hotel ";
+
+            boolean condicionWhere = false;
+
+            if (nombre != null && !nombre.isEmpty()) {
+                sql += (condicionWhere ? "WHERE " : "AND ") + "hotel.nombre_hotel LIKE '%" + nombre + "%' ";
+                condicionWhere = true;
+            }
+
+            sql += "GROUP BY hotel.id_hotel, hotel.nombre_hotel, hotel.reservas_hotel ";
+
+
+
+            // Orden alfabético
+            switch (orden) {
+                case 1: // Orden alfabético ascendente
+                    sql += "ORDER BY hotel.nombre_hotel ASC ";
+                    break;
+                case 2: // Orden alfabético descendente
+                    sql += "ORDER BY hotel.nombre_hotel DESC ";
+                    break;
+            }
+
+            sql += "LIMIT 10";
+
+            System.out.println(sql);
+            ResultSet resultset = this.motorSQL.executeQuery(sql);
+
+            while (resultset.next()) {
+                Hotel hotel = new Hotel();
+                hotel.setId_Hotel(resultset.getInt(1));
+                hotel.setNombre_Hotel(resultset.getString(2));
+                hotel.setReservas_Hotel(resultset.getInt(3));
+                hotel.setPuntuacion_Hotel(resultset.getDouble(4));
+                lstHoteles.add(hotel);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            this.motorSQL.disconnect();
+        }
+
+        MyDataVH10 data = new MyDataVH10();
+        data.setLstHotel(lstHoteles);
+        resultado = Hotel.toJsonData(data);
+
+        return resultado;
+    }
+
 
     public static void main(String[] args) {
         HotelDAO hotelDAO = new HotelDAO();

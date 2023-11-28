@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="order_options">
+        <item>Ordenar ascendentemente</item>
+        <item>Ordenar descendentemente</item>
+    </string-array>
+</resources>

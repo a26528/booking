@@ -23,7 +23,7 @@ import com.example.booking.utils.RetrofitCliente;
 
 public class LoginHotelModel implements ContractLoginHotel.Model{
 
-    private static final String IP_BASE = "192.168.104.56:8080";
+    private static final String IP_BASE = "192.168.0.18:8080";
     private LoginHotelPresenter presenter;
     private Context context;
     public LoginHotelModel(LoginHotelPresenter presenter, Context context){
